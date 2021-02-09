@@ -60,7 +60,7 @@ CakePHPで発行されるSQLのテーブル名、カラム名の前後にバッ�
 ```rb
 (例) select `カラム名` from `users`
 ```  
-ここのタイムゾーンの設定がエラーになる場合は、を参照。  
+ここのタイムゾーンの設定がエラーになる場合は[ココ](https://www.petitmonte.com/php/cakephp_project.html#SQLSTATE[HY000])を参照。  
 ### マイグレーション
 ```rb
 bin/cake migrations migrate
