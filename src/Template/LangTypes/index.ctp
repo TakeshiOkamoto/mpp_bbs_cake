@@ -72,9 +72,9 @@
   <p><?= $this->Paginator->counter(['format' => __('全{{count}}件中 {{start}} - {{end}}件のデータが表示されています。')]) ?></p>
 </nav>
 <?php }else{ ?>
-  <p>データがありません。</p>
+  <p><?= __('データがありません。') ?></p>
 <?php } ?>
     
 <p></p>
-<a href="<?= $this->Url->build('/lang-types/add', true) ?>" class="btn btn-primary">カテゴリの新規登録</a>
+<a href="<?= $this->Url->build('/lang-types/add', true) ?>" class="btn btn-primary"><?= __('カテゴリの新規登録') ?></a>
 <p><br></p>  
