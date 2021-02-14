@@ -91,7 +91,7 @@ class QuestionsTable extends AppTable
                         
             // この時点でテーブルチェックをするので
             // validationDefault()の後に実行されるbuildRules()の時でも良い
-            ->add('title', 'unique', ['rule' => 'validateUnique', 'provider' => 'table', 'message' => __('名前の値は既に存在しています。')]);
+            ->add('title', 'unique', ['rule' => 'validateUnique', 'provider' => 'table', 'message' => __('タイトルの値は既に存在しています。')]);
                         
         $validator
             ->boolean('resolved')
@@ -114,7 +114,7 @@ class QuestionsTable extends AppTable
     public function buildRules(RulesChecker $rules)
     {
         // 不要
-        // $rules->add($rules->isUnique(['title'], __('名前の値は既に存在しています。')));
+        // $rules->add($rules->isUnique(['title'], __('タイトルの値は既に存在しています。')));
         // $rules->add($rules->existsIn(['lang_type_id'], 'LangTypes'));
 
         return $rules;
