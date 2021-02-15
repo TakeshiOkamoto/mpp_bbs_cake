@@ -4,6 +4,7 @@ namespace App\Controller;
 use App\Controller\AppController;
 
 // 追加分
+use Cake\Event\Event;
 use Cake\Datasource\ConnectionManager;
 use Cake\Core\Exception\Exception;
 use Cake\ORM\Exception\PersistenceFailedException;
@@ -24,7 +25,18 @@ class LangTypesController extends AppController
             'LangTypes.sort' => 'asc'
         ]
     ];
-      
+    
+    public function beforeFilter(Event $event)
+    {
+        parent::beforeFilter($event);
+        
+        // ログインチェック 
+        $session = $this->getRequest()->getSession();
+        if (!$session->check('user.name')){
+            return $this->redirect('/');
+        }
+    }
+    
     public function initialize()
     {
         // 親クラスのinitialize()
@@ -35,13 +47,6 @@ class LangTypesController extends AppController
             
         // レイアウト
         $this->viewBuilder()->setLayout('main');
-
-        // ログインチェック 
-        // ※CakePHPの仕様でここで定義してもdeleteメソッドには別途、同様な定義が必要。
-        $session = $this->getRequest()->getSession();
-        if (!$session->check('user.name')){
-            return $this->redirect('/');
-        }
     }
     
     /**
