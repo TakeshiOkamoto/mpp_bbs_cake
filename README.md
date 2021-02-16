@@ -61,6 +61,9 @@ CakePHPで発行されるSQLのテーブル名、カラム名の前後にバッ�
 (例) select `カラム名` from `users`
 ```  
 ここのタイムゾーンの設定がエラーになる場合は[ココ](https://www.petitmonte.com/php/cakephp_project.html#SQLSTATE[HY000])を参照。  
+### bin/cake
+bin/cakeファイルのパーミッションは実行権限を付与して下さい。(例)700 or 744 or 764など
+  
 ### マイグレーション
 ```rb
 bin/cake migrations migrate
