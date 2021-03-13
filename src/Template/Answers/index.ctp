@@ -35,23 +35,21 @@
       <span class="pc">
         <span>&nbsp;No: </span> 
         <span><?= h($item->id) ?></span> 
-      </span>  
-      
+      </span>
       <?php if ($session->check('user.name')){ ?>
         <span>&nbsp;IP: </span> 
         <span><?= h($item->ip) ?></span>
       <?php } ?>
-      
-      <p><?= $item->body ?></p>
-      <?php if ($session->check('user.name')){ ?>
-        <span><a href="<?= $this->Url->build('/answers/edit/' . $item->id, true) ?>" class="btn btn-primary mr-3"><?= __('編集') ?></a></span>
-        <span> <a href="#" onclick="ajax_delete('<?= __('「No.{0}」を削除します。よろしいですか？', $item->id) ?>','<?= $this->Url->build('/answers/delete/' . $item->id, true) ?>','<?= $this->Url->build('/answers?question_id=' .  $question->id, true) ?>');return false;" class="btn btn-danger"><?= __('削除') ?></a></span>
-      <?php } ?> 
     </div>    
   </div>
   <div class="clearfix">
     <div class="float-none"></div>  
   </div>  
+  <p><?= $item->body ?></p>
+  <?php if ($session->check('user.name')){ ?>
+    <span><a href="<?= $this->Url->build('/answers/edit/' . $item->id, true) ?>" class="btn btn-primary mr-3"><?= __('編集') ?></a></span>
+    <span> <a href="#" onclick="ajax_delete('<?= __('「No.{0}」を削除します。よろしいですか？', $item->id) ?>','<?= $this->Url->build('/answers/delete/' . $item->id, true) ?>','<?= $this->Url->build('/answers?question_id=' .  $question->id, true) ?>');return false;" class="btn btn-danger"><?= __('削除') ?></a></span>
+  <?php } ?>   
 <?php } ?>
 <?php 
   // foreachの$itemが残存してるのでNULLへ
